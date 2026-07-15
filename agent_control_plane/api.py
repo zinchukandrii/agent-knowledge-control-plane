@@ -4,6 +4,8 @@ from dataclasses import asdict
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, status
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from .knowledge import build_context_packet, load_nodes
@@ -25,7 +27,13 @@ def create_app(*, database_path: Path | None = None, vault_path: Path | None = N
     store.initialize()
     fixture_vault = vault_path or project_root / "examples" / "demo_vault"
 
+    static_dir = Path(__file__).with_name("static")
     app = FastAPI(title="Evidence-First Agent Knowledge & Control Plane", version="0.1.0")
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+    @app.get("/", include_in_schema=False)
+    def dashboard() -> FileResponse:
+        return FileResponse(static_dir / "index.html")
 
     @app.post("/tasks", status_code=status.HTTP_201_CREATED)
     def create_task(payload: CreateTaskRequest) -> dict[str, str]:

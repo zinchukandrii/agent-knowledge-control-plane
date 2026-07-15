@@ -2,6 +2,8 @@
 
 A public, local demonstrator for **scoped agent memory, bounded worker collaboration, evidence verification and human approval gates**.
 
+![Verified local fixture run in the dashboard](docs/assets/dashboard-verified-run.png)
+
 > **Public fixtures only.** This repository must not contain personal conversation history, employer/client material, credentials or production agent logs.
 
 ## MVP principle
@@ -66,7 +68,17 @@ uv pip install --python .venv/bin/python -e '.[dev]'
 .venv/bin/uvicorn --factory agent_control_plane.api:create_app --host 127.0.0.1 --port 8017
 ```
 
-Interactive API docs are then available locally at `http://127.0.0.1:8017/docs`. The default local database is `data/control-plane.sqlite3`, which is ignored by Git.
+The portfolio dashboard is then available locally at `http://127.0.0.1:8017/`; it triggers the real fixture-only API run and renders its persisted evidence cards and trace. Interactive API docs are available at `http://127.0.0.1:8017/docs`. The default local database is `data/control-plane.sqlite3`, which is ignored by Git.
+
+### Verify from a second laptop on the same Wi-Fi
+
+With the server running using `--host 0.0.0.0`, open **PowerShell as Administrator** on the Windows host and run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\enable_lan_demo.ps1
+```
+
+The script refreshes the dynamic WSL2 target and exposes only TCP `8017` to the Windows **Private/Public** firewall profile but restricts remote access to `LocalSubnet`. It prints the Wi-Fi URL to open from the second laptop.
 
 ## Reproducible pipeline demo
 

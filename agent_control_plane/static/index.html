@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Evidence-first agent knowledge control plane local demo." />
+    <title>Evidence-First Control Plane</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top"><span class="brand-mark">E</span> CONTROL PLANE</a>
+        <span class="nav-tag">LOCAL · FIXTURE-ONLY</span>
+      </nav>
+
+      <section class="hero" id="top">
+        <div>
+          <p class="eyebrow">EVIDENCE-FIRST AGENT SYSTEMS</p>
+          <h1>Evidence-First<br /><em>Agent Knowledge</em><br />&amp; Control Plane.</h1>
+          <p class="lede">A bounded, deterministic demonstrator for scoped context, verifiable claims and auditable run traces.</p>
+          <div class="hero-actions">
+            <button class="primary" id="run-button" type="button">Run verified fixture <span>→</span></button>
+            <a class="secondary" href="/docs">Inspect API <span>↗</span></a>
+          </div>
+        </div>
+        <aside class="system-card" aria-label="System boundary summary">
+          <div class="card-label">SYSTEM BOUNDARY</div>
+          <div class="boundary-line"><span class="dot green"></span> Public fixtures only</div>
+          <div class="boundary-line"><span class="dot cyan"></span> No live LLM or web fetch</div>
+          <div class="boundary-line"><span class="dot amber"></span> No external action capability</div>
+          <div class="card-rule"></div>
+          <p>Consequential actions remain outside this system and require human approval.</p>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="Control plane properties">
+        <article><strong>Scoped</strong><span>context packet</span></article>
+        <article><strong>3</strong><span>evidence cards</span></article>
+        <article><strong>4</strong><span>trace stages</span></article>
+        <article><strong>Fail closed</strong><span>verification policy</span></article>
+      </section>
+
+      <section class="architecture">
+        <div class="section-heading"><p class="eyebrow">RUN CONTRACT</p><h2>Bounded work. Traceable evidence.</h2></div>
+        <div class="flow" aria-label="Deterministic worker flow">
+          <div class="flow-step"><span>01</span><strong>Scoped context</strong><p>Public project nodes only.</p></div>
+          <div class="connector">→</div>
+          <div class="flow-step"><span>02</span><strong>Evidence cards</strong><p>Candidate evidence, not truth.</p></div>
+          <div class="connector">→</div>
+          <div class="flow-step"><span>03</span><strong>Candidate brief</strong><p>Claims cite card IDs.</p></div>
+          <div class="connector">→</div>
+          <div class="flow-step"><span>04</span><strong>Verification</strong><p>Verified or blocked with defects.</p></div>
+        </div>
+      </section>
+
+      <section class="demo-grid" aria-label="Live local fixture run">
+        <article class="run-panel">
+          <div class="panel-head"><div><p class="eyebrow">LIVE LOCAL DEMO</p><h2>Run status</h2></div><span class="status idle" id="run-status">READY</span></div>
+          <p id="run-copy" class="muted">Click the control to execute the deterministic public-fixture workflow through the local API.</p>
+          <div class="trace" id="trace" aria-live="polite">
+            <div class="trace-empty">Awaiting a local run.</div>
+          </div>
+        </article>
+        <article class="evidence-panel">
+          <div class="panel-head"><div><p class="eyebrow">EVIDENCE REGISTER</p><h2>Candidate cards</h2></div><span id="evidence-count">0 cards</span></div>
+          <div class="evidence-list" id="evidence-list"><p class="muted">No cards yet. The UI never invents a result.</p></div>
+        </article>
+      </section>
+
+      <section class="governance">
+        <div><p class="eyebrow">GOVERNANCE BY DESIGN</p><h2>What this system will not do.</h2></div>
+        <div class="guardrails">
+          <p><span>×</span> Publish or send externally</p>
+          <p><span>×</span> Access credentials or private history</p>
+          <p><span>×</span> Treat unsupported claims as verified</p>
+          <p><span>×</span> Bypass human approval</p>
+        </div>
+      </section>
+
+      <footer><span>Evidence-First Agent Knowledge &amp; Control Plane</span><span>LOCAL DEMONSTRATOR · v0.1.0</span></footer>
+    </main>
+  </body>
+</html>

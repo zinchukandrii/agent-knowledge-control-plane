@@ -75,6 +75,21 @@ def test_task_can_run_fixture_pipeline_and_expose_auditable_trace(tmp_path: Path
         assert packet_response.json()["context_packet"]["source_scope"] == "public-fixtures-only"
 
 
+def test_local_dashboard_is_served_with_a_real_fixture_run_control(tmp_path: Path):
+    with create_client(tmp_path) as client:
+        page = client.get("/")
+        script = client.get("/static/app.js")
+
+    assert page.status_code == 200
+    assert "Evidence-First Agent Knowledge" in page.text
+    assert "Run verified fixture" in page.text
+    assert script.status_code == 200
+    assert "runFixture" in script.text
+    assert "event.detail" in script.text
+    assert "card.excerpt" in script.text
+    assert "escapeHtml" in script.text
+
+
 def test_unknown_task_or_run_returns_404(tmp_path: Path):
     with create_client(tmp_path) as client:
         assert client.post("/tasks/missing/run").status_code == 404
